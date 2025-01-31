@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+const characters = await getCollection('actors');
+---
+
+
+<section aria-label="Personajes partida de rol" class="flex justify-center">
+    <div class="px-4 max-w-screen">
+        <div class="grid gap-4 grid-cols-3">
+        {
+            characters.map((character)=>{
+                const {slug, data} = character;
+                const {name, player, img}= data;
+                return (
+                    <article class="flex">
+                        <a href={"./character/"+slug} class="mb-2 xl:mb-0 transition hover:scale-110">
+                            <img transition:name={`img-${slug}`} class="mr-5  h-95 w-75 rounded  object-cover" src={"./characters/" + img} alt={name}/>
+                        </a>
+                    </article>
+                );
+            })
+        }
+        </div>
+    </div>
+</section>

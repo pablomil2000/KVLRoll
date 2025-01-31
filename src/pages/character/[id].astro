@@ -1,0 +1,46 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "./../../layouts/Layout.astro";
+import Header from "../../components/header.astro";
+import Navbar from "../../components/navbar.astro";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const actors = await getCollection("actors");
+  return actors.map((actor) => ({
+    params: { id: actor.slug },
+    props: { actor },
+  }));
+}
+
+const { actor } = Astro.props;
+const { data, slug } = actor;
+const {name, img, player} = data;
+const { Content } = await render(actor);
+---
+
+<Layout title=`${name} - Dev books`>
+  <Header/>
+  <Navbar/>
+  <div class="flex gap-12 p-8">
+    <aside class="flex flex-col items-center gap-4">
+      <a href="/" class="hover:underline opacity-70">⬅️ Volver al inicio</a>
+      <img
+        transition:name={`img-${slug}`}
+        src={`/characters/${img}`}
+        alt={name}
+        class="rounded w-72 h-auto"
+      />
+      <p>Jugador: {player}</p>
+    </aside>
+    <main class="max-w-3xl">
+      <h1 transition:name={`title-${name}`} class="text-4xl font-bold mb-4">
+        {name}
+      </h1>
+      <div class="prose prose-invert">
+        <Content />
+      </div>
+    </main>
+  </div>
+</Layout>
