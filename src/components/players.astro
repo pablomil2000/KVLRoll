@@ -6,7 +6,7 @@ const characters = await getCollection('actors');
 
 <section aria-label="Personajes partida de rol" class="flex justify-center">
     <div class="px-4 max-w-screen">
-        <div class="grid gap-4 grid-cols-3">
+        <div class="grid gap-4 grid-cols-4">
         {
             characters.map((character)=>{
                 const {slug, data} = character;
