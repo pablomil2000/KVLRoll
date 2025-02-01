@@ -27,8 +27,8 @@ gallery:
   ]
 ---
 
-Un grupo de aventureros se encuentran en un posada de whaterdeeps, el objetivo, consegir un contrato para investigar una desaparicion. Alli los espera Volo, un famoso escritor que les encomienda una mision aparentemente sencilla, investigar la desaparicion de uno de sus amigos, con el que estubo bebiendo la noche antes pero que aparentemente nunca llego a su casa.
+Un grupo de aventureros se encuentra en una posada de Waterdeep, con el objetivo de conseguir un contrato para investigar una desaparición. Allí los espera Volo, un famoso escritor que les encomienda una misión aparentemente sencilla: investigar la desaparición de uno de sus amigos, con quien estuvo bebiendo la noche anterior, pero que aparentemente nunca llegó a su casa.
 
-Su investigacion comenzo en el portal voztezante, conde tubieron un pequeño atercado con unos matones que estaban molestando a una goliath, tras que el tabernero pusiera orden terminaron de recoger la mision y comenzaron su investigacion.
+La investigación comienza en el Portal Voztezante, donde tuvieron un pequeño altercado con unos matones que estaban molestando a una goliat. Tras el tabernero poner orden, los aventureros terminaron de aceptar la misión y comenzaron su investigación.
 
-Con esta informacion en mano los aventureros empiezan su investigacion, recorren todas las calles de waterdeep e investigando distintas ubicaciones, desde las calles donde desaparecio hasta la misma taberna de la reunion.
+Con esta información en mano, los aventureros inician su búsqueda, recorriendo las calles de Waterdeep e investigando diversas ubicaciones, desde el lugar donde ocurrió la desaparición hasta la misma taberna de la reunión.

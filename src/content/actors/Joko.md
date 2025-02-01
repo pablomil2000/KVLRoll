@@ -1,6 +1,6 @@
 ---
 name: Joko
-player: Alvaro
+player: Álvaro
 img: joko.jpg
 ---
 
