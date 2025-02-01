@@ -1,14 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/header.astro';
 import Navbar from '../components/navbar.astro';
 import Players from '../components/players.astro';
-import Header from '../components/header.astro';
+import Partidas from '../components/partidas.astro';
 ---
 
 
 <Layout title='KVL Roll'>
-	<Header/>
-	<Navbar/>
+	<div id="header" class="fixed shadow-md z-[9999] bg-[#13151a]">
+		<Header/>
+		<Navbar/>
+	</div>
+	<div id="content" class=" my-15">
+
+	</div>
 	<Players/>
+	<Partidas/>
 
 </Layout>

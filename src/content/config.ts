@@ -9,5 +9,11 @@ const actors = defineCollection({
   })
 });
 
+const games = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    img: z.optional(z.string()),
+  })
+})
 
-export const collections = { actors };
+export const collections = { actors, games };

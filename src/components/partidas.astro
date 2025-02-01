@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+const partidas = await getCollection('games');
+---
+
+
+<section aria-label="Partidas Jugadas" class="flex justify-center my-4" id="partidas">
+    <div class="px-4 max-w-screen">
+        <h3 class="px-4 text-3xl">Partidas</h3>
+        <div class="grid gap-4 grid-cols-4">
+        {
+            partidas.map((partida)=>{
+                const {slug, data} = partida;
+                const {title, img}= data;
+                return (
+                    <article class="flex">
+                        <a href={"./game/"+slug} class="mb-2 xl:mb-0 transition hover:scale-110">
+                            {img ? <img transition:name={`img-${slug}`} class="mr-5  h-95 w-75 rounded  object-cover" src={"./games/" + img} alt={title}/>:title}
+                        </a>
+                    </article>
+                );
+            })
+        }
+        </div>
+    </div>
+</section>

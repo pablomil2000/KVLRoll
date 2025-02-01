@@ -7,8 +7,8 @@ import Navbar from "../../components/navbar.astro";
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const actors = await getCollection("actors");
-  return actors.map((actor) => ({
+  const games = await getCollection("games");
+  return games.map((actor) => ({
     params: { id: actor.slug },
     props: { actor },
   }));
@@ -16,28 +16,30 @@ export async function getStaticPaths() {
 
 const { actor } = Astro.props;
 const { data, slug } = actor;
-const {name, img, player} = data;
+const {title, img} = data;
 const { Content } = await render(actor);
 ---
 
-<Layout title=`${name} - Dev books`>
+<Layout title=`${title} - Dev books`>
   <Header/>
+
   <div class="flex gap-12 p-8">
     <aside class="flex flex-col items-center gap-4">
       <a href="/KVLRoll/" class="hover:underline opacity-70">⬅️ Volver al inicio</a>
-      <img
+      {img ? <img
         transition:name={`img-${slug}`}
-        src={`/KVLRoll/characters/${img}`}
-        alt={name}
+        src={`/KVLRoll/games/${img}`}
+        alt={title}
         class="rounded w-72 h-auto"
-      />
-      <p>Jugador: {player}</p>
+      />:
+      ''}
+      
     </aside>
-    <main class="max-w-3xl">
-      <h1 transition:name={`title-${name}`} class="text-4xl font-bold mb-4">
-        {name}
+    <main class="max-w-3xl w-screen">
+      <h1 transition:name={`title-${title}`} class="text-4xl font-bold mb-4">
+        {title}
       </h1>
-      <div class="prose prose-invert">
+      <div class="prose prose-invert text-2xl">
         <Content />
       </div>
     </main>
