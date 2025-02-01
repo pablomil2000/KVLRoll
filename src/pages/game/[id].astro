@@ -3,6 +3,7 @@ import { getCollection, render } from "astro:content";
 import Layout from "./../../layouts/Layout.astro";
 import Header from "../../components/header.astro";
 import Navbar from "../../components/navbar.astro";
+import { isAborted } from "astro:schema";
 
 export const prerender = true;
 
@@ -16,7 +17,7 @@ export async function getStaticPaths() {
 
 const { actor } = Astro.props;
 const { data, slug } = actor;
-const {title, img} = data;
+const {title, img, gallery} = data;
 const { Content } = await render(actor);
 ---
 
@@ -33,7 +34,6 @@ const { Content } = await render(actor);
         class="rounded w-72 h-auto"
       />:
       ''}
-      
     </aside>
     <main class="max-w-3xl w-screen">
       <h1 transition:name={`title-${title}`} class="text-4xl font-bold mb-4">
@@ -41,6 +41,22 @@ const { Content } = await render(actor);
       </h1>
       <div class="prose prose-invert text-2xl">
         <Content />
+      </div>
+
+      <h3 class="text-center text-2xl">{gallery ? 'Imagenes':''}</h3>
+      <div class="prose prose-invert py-7">
+        <div class="grid gap-4 grid-cols-3">
+        {gallery ? gallery.map((image) => {
+          const isAbsoluteUrl = image.url.startsWith("http");
+          return (
+            <img class="h-auto max-w-full rounded-lg"
+              src={isAbsoluteUrl ? image.url : `/games/${image.url}`} 
+              alt={image.name} 
+            />
+          );
+        }) : null}
+
+        </div>
       </div>
     </main>
   </div>
