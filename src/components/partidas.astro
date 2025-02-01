@@ -7,7 +7,7 @@ const partidas = await getCollection('games');
 <section aria-label="Partidas Jugadas" class="flex justify-center my-4" id="partidas">
     <div class="px-4 max-w-screen">
         <h3 class="px-4 text-3xl">Partidas</h3>
-        <div class="grid gap-4 grid-cols-4">
+        <div class="py-7 grid gap-4 grid-cols-4">
         {
             partidas.map((partida)=>{
                 const {slug, data} = partida;
